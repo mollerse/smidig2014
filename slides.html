@@ -1,0 +1,421 @@
+<style>
+  .light {
+    background: #e4ebee;
+    color: #1c202b;
+  }
+
+  .emphasis {
+    background: #fb544d;
+    color: #fff;
+  }
+
+  .emphasis h1,
+  .emphasis h2,
+  .emphasis h3,
+  .emphasis h4 {
+    color: #1c202b;
+  }
+
+  .light h1,
+  .light h2,
+  .light h3,
+  .light h4 {
+    color: #1c202b;
+  }
+
+  .dark {
+    background: #1c202b;
+  }
+
+  .reveal .subtitle {
+    font-family: 'Jaapokki-regular', sans-serif;
+  }
+
+  .center {
+    display: flex;
+  }
+
+  .center > * {
+    margin: auto;
+    text-align: center !important;
+  }
+
+  h1, h2, h3, h4 {
+    text-align: left;
+  }
+
+  .reveal p {
+    font-size: 150%;
+    text-align: left;
+  }
+  span.uthev {
+    color: #fb544d;
+  }
+
+  svg {
+    width: 20vw;
+    height: 40vw;
+  }
+
+</style>
+
+<section class="center">
+  <h1>MVPS ALL THE WAY DOWN</h1>
+  <h2 class="subtitle">Ett år etter</h2>
+  <p>Stian Veum Møllersen / @mollerse</p>
+  <p>BEKK</p>
+  <aside class="notes">
+    <p>
+      Hei. Jeg heter Stian, jeg jobber i BEKK i Trondheim. I dag skal jeg
+      fortelle dere litt om et par lærepenger vi har tatt til oss etter et år på
+      prosjekt med høy endringsfrekvens og mye usikkerhet.
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h1>PROSJEKTET</h1>
+  <p class="fragment">
+    Typisk startup-scenario.
+  </p>
+  <br />
+  <p class="fragment">
+    Målet er å bedre og effektivisere kommunikasjonen mellom pasient, lege og sykehus.
+  </p>
+  <aside class="notes">
+    <p>
+      Først litt om selve prosjektet, bare for å gi dere litt kontekst.
+      Prosjektet er i regi av NTNU TTO og St. Olavs i Trondheim og det er et
+      ganske typisk startup scenario. Målet er klart, men veien frem er ikke
+      lagt opp og kostnadene er ikke dekket.
+    </p>
+    <p>
+      Målet med prosjektet er å kartlegge smerte hos pasienter som gjennomgår
+      langvarig lindrende behandling. Og på den måten bedre og effektivisere
+      kommunikasjonen mellom pasient, lege, og sykehus.
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h1>STACKEN</h1>
+  <p class="fragment center">
+    <svg viewBox="0 0 400 800" preserveAspectRatio="none">
+      <!-- FRONTEND -->
+      <rect x="0" y="0" width="400" height="300" rx="15" ry="15" stroke-width="5" stroke="#fff" fill="none"></rect>
+      <rect x="20" y="20" width="360" height="260" rx="15" ry="15" stroke-width="5" stroke="#fff" fill="none"></rect>
+      <text x="200" y="170" text-anchor="middle" stroke="#fff" fill="#fff">Angular.js</text>
+      <!-- BACKEND -->
+      <rect x="0" y="325" width="400" height="275" rx="15" ry="15" stroke-width="5" stroke="#fff" fill="none"></rect>
+      <rect x="20" y="345" width="360" height="50" rx="15" ry="15" stroke-width="5" stroke="#fff" fill="none"></rect>
+      <text x="190" y="385" font-size="40" text-anchor="middle" stroke="#fff" fill="#fff">C# .NET</text>
+      <rect x="20" y="410" width="360" height="175" rx="15" ry="15" stroke-width="5" stroke="#fff" fill="none"></rect>
+      <text x="190" y="525" text-anchor="middle" stroke="#fff" fill="#fff">F#</text>
+
+      <!-- DATABASE -->
+      <rect x="0" y="625" width="400" height="175" rx="15" ry="15" stroke-width="5" stroke="#fff" fill="none"></rect>
+      <rect x="20" y="640" width="170" height="145" rx="15" ry="15" stroke-width="5" stroke="#fff" fill="none"></rect>
+      <text x="105" y="702.5" font-size="40" text-anchor="middle" stroke="#fff" fill="#fff">Spread-</text>
+      <text x="105" y="742.5" font-size="40" text-anchor="middle" stroke="#fff" fill="#fff">sheet</text>
+      <rect x="210" y="640" width="170" height="145" rx="15" ry="15" stroke-width="5" stroke="#fff" fill="none"></rect>
+      <text x="295" y="702.5" font-size="40" text-anchor="middle" stroke="#fff" fill="#fff">Azure</text>
+      <text x="295" y="742.5" font-size="40" text-anchor="middle" stroke="#fff" fill="#fff">BlobStore</text>
+    </svg>
+  </p>
+  <aside class="notes">
+    <p>
+      Teknologistacken vi opererer med en i hovedsak en .NET stack, med en
+      stor F# bit. Den server en SPA, hvor mesteparten av funksjonaliteten
+      ligger. Det snakkes i JSON og vi har to forskjellige datastores.
+    </p>
+    <p>
+      Prosjektet består pdd av tre applikasjoner, hvor alle benytter den samme
+      stacken.
+    </p>
+  </aside>
+</section>
+
+<section class="center">
+  <h1>VALGENE</h1>
+  <aside class="notes">
+    <p>
+      Så til det som er fokuset for innlegget. Valgene vi har tatt. Over det
+      siste året har vi innsett at enkelte av valgene vi gjorde på veien ikke
+      var helt optimale. Begrensninger lagt av valg som ble gjort for en tid
+      tilbake har gjort at ikke alle endringer er like enkle å få til.
+    </p>
+    <p>
+      Det jeg ønsker å gjøre i dag er å se nærmere på noen av valgene vi gjorde
+      underveis. Så kan vi, gjennom å se på årsaken til at valget fungerte eller
+      feilet, trekke ut noe lærdom vi kan ta med oss på veien videre.
+    </p>
+  </aside>
+</section>
+
+<section class="light center" data-background="#e4ebee">
+  <h1>Hvilke <span class="uthev">følger</span> får ett enkelt <span class="uthev">valg</span>?</h1>
+  <aside class="notes">
+    <p>
+      For å analysere det enkelte valg skal vi se på hvilke følger valget fikk
+      for hvordan enkelt vi kan modellere nye problemstillinger eller gjøre
+      endringer på eksisterende kode.
+    </p>
+    <p>
+      Hadde et valg uheldige følger som gjorde det mer komplisert å tilpasse
+      løsningen til nye problemstillinger? Gjorde et valg det enklere å endre på
+      oppførslen til systemet?
+    </p>
+    <p>
+      Jeg skal gå igjennom 4 valg og se på hvilke følger det fikk for måten vi
+      kunne endre eller legge til ny funksjonalitet.
+    </p>
+  </aside>
+</section>
+
+<section data-background="#fb544d" class="center emphasis">
+  <p>Valg 1:</p>
+  <h1>Spreadsheet Backend</h1>
+  <aside class="notes">
+    <p>
+      Det første valget vi skal se på er valget av google spreadsheets som
+      backend for en del av dataene vi bruker i applikasjonene. Min kollega
+      Jonas var her på Smidig i fjor og snakket om akkurat dette.
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h2>Spreadsheet Backend</h2>
+  <p class="fragment">
+    Alt må modelleres som tabulære data.
+  </p>
+  <br />
+  <p class="fragment">
+    Dataene i regnearket må oversettes til et annet format for bruk.
+  </p>
+  <aside class="notes">
+    <p>
+      Hvilke følger har valget av spreadsheet som backend for måten vi
+      kan løse problemstilligene våre? Den første følgen er at alle data
+      må kunne modelleres som tabulære data.
+    </p>
+    <p>
+      Den andre følgen er at dataene nå lever på et sted utenfor koden vår og
+      dermed må oversettes til et annet format før vi kan bruke dem videre i
+      programmet.
+    </p>
+  </aside>
+</section>
+
+<section data-background="#fb544d" class="center emphasis">
+  <p>Valg 2:</p>
+  <h1>Angular.js directives</h1>
+  <aside class="notes">
+    <p>
+      Det andre valget var å bruke angular.js som rammeverk for frontenden vår.
+      Og mer spesifikt Angular Directives, som er en abstraksjon for å lage UI
+      komponenter.
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h2>Angular.js directives</h2>
+  <p class="fragment">
+    Alle UI elementer modelleres som Angular directives.
+  </p>
+  <br />
+  <p class="fragment">
+    All UI-relatert logikk må modelleres på Angulars premisser.
+  </p>
+  <aside class="notes">
+    <p>
+      De følgene dette valget fikk var at vi nå var nødt til å kode alle UI
+      komponenter på denne måten, for at de skulle kunne komponeres og snakke
+      sammen.
+    </p>
+    <p>
+      Den andre følgen var at vi nå også var nødt til å skrive UI-relatert
+      logikk på en slik måte at de kunne samarbeide med de komponentene vi
+      brukte.
+    </p>
+  </aside>
+</section>
+
+<section data-background="#fb544d" class="center emphasis">
+  <p>Valg 3:</p>
+  <h1>F# Record Types</h1>
+  <aside class="notes">
+    <p>
+      Valg tre er å bruke F# record types for å skrive typedefinisjoner for alle
+      models på backend. F#, som er et funksjonellt språk på samme runtime som
+      C#, har et veldig ekspressivt og kraftig typesystem vi ønsker å dra nytte
+      av.
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h2>F# Record Types</h2>
+  <p class="fragment">
+    Alle typedefinisjoner må skrives i F#.
+  </p>
+  <aside class="notes">
+    <p>
+      For å kunne komponere type definisjoner så må alle typedefinisjonene være
+      skrevet i F#. På grunn av interop mellom C# og F# er det ingen flere
+      følger.
+    </p>
+  </aside>
+</section>
+
+<section data-background="#fb544d" class="center emphasis">
+  <p>Valg 4:</p>
+  <h1>Bundle Transformer</h1>
+  <aside class="notes">
+    <p>
+      Det fjerde valget vi skal se på var å bruke Bundle Transformer til å
+      håndtere frontend assets. Bundle Transformer er en plugin til .NET for å
+      gjøre en del av de vanligste oppgavene rundt frontend assets.
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h2>Bundle Transformer</h2>
+  <p class="fragment">
+    All konfigurasjon av asset pipeline skjer innenfor .NET rammeverket.
+  </p>
+  <aside class="notes">
+    <p>
+      Den viktigste følgen av dette valget var at all konfigurasjon av asset
+      pipeline skjer innenfor .NET rammeverket. Det betyr at vi må bruke .NETs
+      økosystem for å finne verktøy og utvikleren må ha kjennskap til .NET for å
+      kunne gjøre endringer.
+    </p>
+  </aside>
+</section>
+
+<section class="light center" data-background="#e4ebee">
+  <h1>Hvilke faktorer ble <span class="uthev">avjgørende</span>?</h1>
+  <aside class="notes">
+    <p>
+      Hvilke av disse valgene fungerte, hvilke fungerte ikke? Hvilke faktorer
+      ble avgjørende for resultatet?
+    </p>
+    <p>
+      Noen har kanskje gjetta resultatet, kanskje basert på tonefallet og
+      innholdet i slidene, men de valgene som ikke har fungert for oss har vært
+      Angular.js og Bundle Transformer. Mens F# record types og spreadsheet
+      backend, har fungert bra.
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h1>FAKTORER</h1>
+  <p class="fragment">
+    Få innvirkninger utover ønsket effekt.
+  </p>
+  <br />
+  <p class="fragment">
+    Enkle abstraksjoner.
+  </p>
+  <aside class="notes">
+    <p>
+      Den første egenskapen som de gode valgene hadde var at de hadde få
+      ringvirkninger utover akkurat den ønskede effekten.
+    </p>
+    <p>
+      Angular directives hadde en ekstra ringvirkninger i form av krav til
+      måten resten av grensesnittkoden ble skrevet på, vi kunne ikke bare bruke
+      directives as is. Mens spreadsheet som backend hadde veldig få
+      ringvirkninger. Den eneste ringvirkningen var at vi måtte oversette
+      dataene til et annet format for å bruke dem videre, og tabulære data lar
+      seg ganske enkelt oversettes.
+    </p>
+    <p>
+      Den andre egenskapen var at abstraksjonen var enkel. Enkel er noe veldig
+      annet enn lett. Lett er et subjektiv mål. Noe du kan fra før er lett,
+      feks. Enkelt er et objektivt mål på kompleksitetsgrad.
+    </p>
+    <p>
+      Grunnen til at F# record types fungerte bra var at abstraksjonen var
+      veldig nærme det faktiske datagrunnlaget, den var enkel. Bundle
+      Transformer, på den andre hånd, ikke fungerte var at dette var en lett
+      abstraksjon. For noen som kan .NET var den lett å bruke, men når man ikke
+      kan .NET fra før så er det ikke lengre lett.
+    </p>
+  </aside>
+</section>
+
+<section data-background="#fb544d" class="center emphasis">
+  <h2>Høy endringsfrekvens og mye usikkerhet</h2>
+  <aside class="notes">
+    <p>
+      Klimaet prosjektet befinner seg i er preget av høy endringsfrekvens og mye
+      usikkerhet rundt hvordan løsningne skal implementeres. Da blir det ekstra
+      vitkig å ikke ta avgjørelser som vil få uheldige følger i en fremtid vi
+      ikke vet så veldig mye om.
+    </p>
+    <p>
+      Lette valg har alltid en kostnad forbundet med seg. Du betaler i form av
+      forutsetninger som må oppfylles for at valget skal fungere optimalt. Når
+      vi opererer med høy usikkerhet vet vi ikke om forutsetningene vi har
+      akseptert som følge av et enkelt valg holder etterhvert som vi får mer
+      kunnskap om problemstillingen.
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h1>ENKLE VALG</h1>
+  <p class="fragment">
+    Foretrekk spesifike løsninger på problemer du har.
+  </p>
+  <br />
+  <p class="fragment">
+    Foretrekk enkle løsninger over lette løsninger.
+  </p>
+  <aside class="notes">
+    <p>
+      Konsekvensen av erfaringene det siste året er at vi ønsker å ta enkle valg
+      fremover. For å oppnå det har vi adoptert et par retningslinjer for måten
+      vi ønsker å ta avgjørelser på.
+    </p>
+    <p>
+      Vi vil foretrekke spesifike løsninger på problem vi vet vi har. Vi skal
+      ikke prøve å være smarte med behovene vi får i fremtiden. Usikkerheten og
+      endringsfrekvensen er for stor til å ta valg optimalisert for en
+      hypotetisk fremtid.
+    </p>
+    <p>
+      Vi vil foretrekke enkle løsninger over lette løsninger. Enkle løsninger
+      gjør det lettere å endre kurs eller gjøre løsningen mer optimal for
+      problemstillingen. En lettvint løsning gir kanskje en produktivitetsboost
+      i øyeblikket, men etterhvert som problemstillingen blir tydligere vil
+      forutsetningene et lett valg setter ikke lengre være oppfyllte. Da går det
+      lette over til å være tungvinnt.
+    </p>
+    <p>
+      Et smidig mantra er "do the simplest thing that could possibly work". På
+      norsk blir simple til enkelt, ikke til lett. Og lett er ikke alltid enkelt.
+    </p>
+  </aside>
+</section>
+
+<section class="light center" data-background="#e4ebee">
+  <h2>Det er enklere å gå fra <span class="uthev">mangel</span> på abstraksjon, enn fra <span class="uthev">feil</span> abstraksjon.</h2>
+  <aside class="notes">
+    <p>
+      Det er enklere å gå fra mangel på abstraksjon, enn fra feil abstraksjon.
+      Ikke ta omfattende avgjøresler på mangelfullt grunnlag, ta heller enkle
+      valg med få ringvirkninger og bygg inkrementellt.
+    </p>
+  </aside>
+</section>
+
+<section class="center">
+  <h1>TAKK FOR MEG</h1>
+  <p>Stian Veum Møllersen / @mollerse</p>
+</section>

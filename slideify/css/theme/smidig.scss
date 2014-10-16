@@ -1,0 +1,41 @@
+/**
+ * BartJS theme for reveal.js.
+ *
+ */
+
+
+// Default mixins and settings -----------------
+@import "template/mixins";
+@import "template/settings";
+// ---------------------------------------------
+
+@font-face {
+  font-family: "Jaapokki";
+  src: url("../fonts/Jaapokki/subtract/web/jaapokkisubtract-regular.ttf");
+}
+
+@font-face {
+  font-family: "Jaapokki-regular";
+  src: url("../fonts/Jaapokki/Regular/web/jaapokki-regular.ttf");
+}
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #1c202b;
+
+$mainFont: 'Jaapokki-regular', sans-serif;
+$linkColor: darken(red, 10%);
+$linkColorHover: lighten( $linkColor, 20% );
+$headingFont: 'Jaapokki', sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: 0em;
+$headingTextTransform: none;
+$headingColor: #fb544d;
+$headingMargin: 0;
+$headingLineHeight: 1.25em;
+$selectionBackgroundColor: #1c202b;
+$mainFontSize: 3em;
+
+
+// Theme template ------------------------------
+@import "template/theme";
+// ---------------------------------------------
